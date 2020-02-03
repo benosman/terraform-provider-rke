@@ -22,9 +22,9 @@ func rkeClusterBastionHostFields() map[string]*schema.Schema {
 		"port": {
 			Type:         schema.TypeString,
 			Optional:     true,
-			Default:      "22",
 			Description:  "SSH Port of Bastion Host",
 			ValidateFunc: validation.IntBetween(1, 65535),
+			Computed:     true,
 		},
 		"ssh_agent_auth": {
 			Type:        schema.TypeBool,
@@ -37,6 +37,7 @@ func rkeClusterBastionHostFields() map[string]*schema.Schema {
 			Sensitive:   true,
 			Optional:    true,
 			Description: "SSH Certificate Key",
+			Computed:    true,
 		},
 		"ssh_cert_path": {
 			Type:        schema.TypeString,
@@ -49,11 +50,13 @@ func rkeClusterBastionHostFields() map[string]*schema.Schema {
 			Optional:    true,
 			Sensitive:   true,
 			Description: "SSH Private Key",
+			Computed:    true,
 		},
 		"ssh_key_path": {
 			Type:        schema.TypeString,
 			Optional:    true,
 			Description: "SSH Private Key Path",
+			Computed:    true,
 		},
 	}
 	return s
